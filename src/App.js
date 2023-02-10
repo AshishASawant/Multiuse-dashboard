@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
+import { Navbar, Footer, Sidebar, ThemeSetting } from "./components";
 import {
   Ecommerce,
   Orders,
@@ -25,9 +25,9 @@ import {
 import { useStateContext } from "./context/ContextProvider";
 
 const App = () => {
-  let {activeMenu}=useStateContext()
+  let {activeMenu,themeSetting,setThemeSetting,currentColor,currentMode}=useStateContext()
   return (
-    <div>
+    <div className={currentMode==="Dark"?"dark":""}>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
@@ -35,7 +35,8 @@ const App = () => {
               <button
                 type="button"
                 className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white "
-                style={{ backgroundColor: "blue", borderRadius: "50%" }}
+                style={{ backgroundColor: currentColor, borderRadius: "50%" }}
+                onClick={()=>{setThemeSetting(true)}}
               >
                 <FiSettings />
               </button>
@@ -49,7 +50,7 @@ const App = () => {
             <div className="w-0 dark:bg-secondary-dark-bg">sidebar w-0</div>
           )}
           <div
-            className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
+            className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${
               activeMenu ? "md:ml-72" : "flex-2"
             }`}
           >
@@ -57,25 +58,28 @@ const App = () => {
               <Navbar/>
             </div>
             <div>
+
+              {themeSetting && <ThemeSetting/>}
+
               <Routes>
                 {/* Dashboard */}
                 <Route exact path="/" element={<Ecommerce/>}></Route>
                 <Route exact path="/ecommerce" element={<Ecommerce/>}></Route>
 
                 {/* Pages */}
-                <Route path="/orders" element="orders"></Route>
-                <Route path="/employee" element="employee"></Route>
-                <Route path="/customers" element="customers"></Route>
+                <Route path="/orders" element={<Orders/>}></Route>
+                <Route path="/employees" element={<Employees/>}></Route>
+                <Route path="/customers" element={<Customers/>}></Route>
 
                 {/* Apps */}
-                <Route path="/kanban" element="kanban"></Route>
-                <Route path="/editor" element="editor"></Route>
-                <Route path="/calendar" element="calendar"></Route>
-                <Route path="/color-picker" element="color-picker"></Route>
+                <Route path="/kanban" element={<Kanban/>}></Route>
+                <Route path="/editor" element={<Editor/>}></Route>
+                <Route path="/calendar" element={<Calendar/>}></Route>
+                <Route path="/color-picker" element={<ColorPicker/>}></Route>
 
                 {/* Charts */}
-                <Route path="/line" element="color-picker"></Route>
-                <Route path="/area" element="color-picker"></Route>
+                <Route path="/line" element={<Line/>}></Route>
+                <Route path="/area" element={<Area/>}></Route>
                 <Route path="/bar" element="color-picker"></Route>
                 <Route path="/pie" element="color-picker"></Route>
                 <Route path="/financial" element="color-picker"></Route>

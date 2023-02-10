@@ -10,7 +10,7 @@ import { Cart, Chat, Notification, UserProfile } from ".";
 import { useStateContext } from "../context/ContextProvider";
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu,isClicked,setIsClicked,handleClick,screenSize, setScreenSize} = useStateContext();
+  const { activeMenu, setActiveMenu,isClicked,setIsClicked,handleClick,screenSize, setScreenSize,currentColor} = useStateContext();
 
   useEffect(() => {
     const  handleResize=()=>setScreenSize(window.innerWidth)
@@ -64,7 +64,7 @@ const Navbar = () => {
           setActiveMenu((prevActiveMenu) => !prevActiveMenu);
         }}
         icon={<AiOutlineMenu />}
-        color="blue"
+        color={currentColor}
         dotColor={""}
       ></NavButton>
 
@@ -75,7 +75,7 @@ const Navbar = () => {
             setActiveMenu(() => handleClick("cart"));
           }}
           icon={<FiShoppingCart />}
-          color="blue"
+          color={currentColor}
           dotColor={""}
         ></NavButton>
         <NavButton
@@ -84,7 +84,7 @@ const Navbar = () => {
             setActiveMenu(() => handleClick("chat"));
           }}
           icon={<BsChatLeft />}
-          color="blue"
+          color={currentColor}
           dotColor="#03C9D7"
         ></NavButton>
         <NavButton
@@ -93,7 +93,7 @@ const Navbar = () => {
             setActiveMenu(() => handleClick("notification"));
           }}
           icon={<RiNotification3Line />}
-          color="blue"
+          color={currentColor}
           dotColor="#03C9D7"
         ></NavButton>
         <TooltipComponent content="Profile" position="BottomCenter">
