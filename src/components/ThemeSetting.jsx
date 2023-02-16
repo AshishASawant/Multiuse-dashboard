@@ -11,7 +11,6 @@ const ThemeSetting = () => {
     setCurrentColor,
     currentMode,
     setCurrentMode,
-    themeSetting,
     setThemeSetting,
   } = useStateContext();
 

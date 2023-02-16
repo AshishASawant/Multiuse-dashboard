@@ -11,10 +11,8 @@ import { useStateContext } from "../context/ContextProvider";
 
 const Navbar = () => {
   const {
-    activeMenu,
     setActiveMenu,
     isClicked,
-    setIsClicked,
     handleClick,
     screenSize,
     setScreenSize,
@@ -31,6 +29,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+       // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -39,6 +38,7 @@ const Navbar = () => {
     } else {
       setActiveMenu(true);
     }
+       // eslint-disable-next-line
   }, [screenSize]);
 
   const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
@@ -103,7 +103,7 @@ const Navbar = () => {
             className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
             onClick={() => handleClick("userProfile")}
           >
-            <img src={avatar} className="rounded-full w-8 h-8" />
+            <img src={avatar} alt="user" className="rounded-full w-8 h-8" />
             <p>
               <span className="text-gray-400 text-14">Hi,</span>{" "}
               <span className="text-gray-400 font-bold ml-1 text-14">

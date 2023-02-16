@@ -1,9 +1,9 @@
-import React, { useEffect,useRef } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import { Navbar, Footer, Sidebar, ThemeSetting } from "./components";
+import { Navbar, Sidebar, ThemeSetting } from "./components";
 import {
   Ecommerce,
   Orders,
@@ -23,11 +23,9 @@ import {
   Editor,
 } from "./pages";
 import { useStateContext } from "./context/ContextProvider";
-let root=document.getElementById("root")
 
 const App = () => {
   let {activeMenu,themeSetting,setThemeSetting,currentColor,currentMode}=useStateContext()
-  const linkRef = useRef(null);
 
   //In the code below if the currentMode is set to Dark then if enters the if condition and adds a link inside the div.When the currentMode changes the link unmounts using the return statement
   // useEffect(() => {
@@ -55,13 +53,13 @@ const App = () => {
     } else {
       link.href = "";
     }
+       // eslint-disable-next-line
   }, [currentMode]);
   
   
   return (
     <div className={currentMode==="Dark"?"dark":""}>
       <link rel="stylesheet" href="style.css" id="theme"/>
-      {/* <div ref={linkRef} /> */}
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: "10" }}>

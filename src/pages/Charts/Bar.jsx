@@ -3,11 +3,9 @@ import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Leg
 
 import { barCustomSeries, barPrimaryXAxis, barPrimaryYAxis } from '../../data/dummy';
 import { Header } from '../../components';
-import { useStateContext } from '../../context/ContextProvider';
 
 
 const Bar = () => {
-  const { currentMode } = useStateContext();
 
   return (
     <div className="m-4 md:m-10 mt-24 p-5 md:p-8 bg-white dark:bg-secondary-dark-bg rounded-3xl">

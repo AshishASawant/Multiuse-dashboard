@@ -1,11 +1,9 @@
 import React from 'react'
 import { ChartComponent,SeriesDirective,Inject,Legend,Category, StackingColumnSeries,Tooltip, SeriesCollectionDirective } from '@syncfusion/ej2-react-charts/src'
 import { stackedCustomSeries,stackedPrimaryXAxis, stackedPrimaryYAxis } from '../../data/dummy'
-import { useStateContext } from '../../context/ContextProvider'
 
 const Stacked = ({width,height}) => {
 
-  const {currentMode}=useStateContext()
   return (
     <ChartComponent
     width={width}

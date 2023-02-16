@@ -6,7 +6,6 @@ const ColorPicker = () => {
 
   const change=(val)=>{
     document.getElementById('preview').style.backgroundColor=val.currentValue.hex
-    change={change}
   }
 
   return (
