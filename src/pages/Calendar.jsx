@@ -4,7 +4,7 @@ import { scheduleData } from '../data/dummy'
 import { Header } from '../components'
 const Calendar = () => {
   return (
-    <div className='m-2 md:md-10 mt-24 p-2 md:p10 bg-white rounded-3xl'>
+    <div className='m-4 md:m-10 mt-24 p-5 md:p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl'>
         <Header category='App' title='Calendar'/>
         <ScheduleComponent height='650px'
         eventSettings={{dataSource:scheduleData}}>

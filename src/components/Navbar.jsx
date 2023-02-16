@@ -10,33 +10,36 @@ import { Cart, Chat, Notification, UserProfile } from ".";
 import { useStateContext } from "../context/ContextProvider";
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu,isClicked,setIsClicked,handleClick,screenSize, setScreenSize,currentColor} = useStateContext();
+  const {
+    activeMenu,
+    setActiveMenu,
+    isClicked,
+    setIsClicked,
+    handleClick,
+    screenSize,
+    setScreenSize,
+    currentColor,
+  } = useStateContext();
 
   useEffect(() => {
-    const  handleResize=()=>setScreenSize(window.innerWidth)
+    const handleResize = () => setScreenSize(window.innerWidth);
 
-    window.addEventListener('resize',handleResize)
+    window.addEventListener("resize", handleResize);
 
-    handleResize()
+    handleResize();
 
-    return()=>{
-      window.removeEventListener('resize',handleResize)
-    }
-  },[])
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
-    if(screenSize<=900){
-      setActiveMenu(false)
-    }else{
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
       setActiveMenu(true);
     }
-  
-    
-  }, [screenSize])
-  
-  
-
-
+  }, [screenSize]);
 
   const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
     <TooltipComponent content={title} position="BottomCenter">
@@ -48,10 +51,9 @@ const Navbar = () => {
       >
         <span
           style={{ background: dotColor }}
-          className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
-        >
-        </span>
-          {icon}
+          className="absolute inline-flex rounded-full h-2 w-2 right-4 top-2"
+        ></span>
+        {icon}
       </button>
     </TooltipComponent>
   );
@@ -94,7 +96,7 @@ const Navbar = () => {
           }}
           icon={<RiNotification3Line />}
           color={currentColor}
-          dotColor="#03C9D7"
+          dotColor="#fec90f"
         ></NavButton>
         <TooltipComponent content="Profile" position="BottomCenter">
           <div
@@ -108,13 +110,13 @@ const Navbar = () => {
                 Ashish
               </span>
             </p>
-            <MdKeyboardArrowDown className="text-gray-400 text-14"/>
+            <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
-        {isClicked.cart && <Cart/>}
-        {isClicked.chat && <Chat/>}
-        {isClicked.notification && <Notification/>}
-        {isClicked.userProfile && <UserProfile/>}
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />}
+        {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
   );

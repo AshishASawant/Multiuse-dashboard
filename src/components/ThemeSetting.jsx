@@ -26,7 +26,7 @@ const ThemeSetting = () => {
   };
   return (
     <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0">
-      <div className="float-right h-screen dark:text-gray-200 bg-white dark:bg-secondary-dark-bg w-400">
+      <div className="float-right h-screen dark:text-gray-200 bg-white dark:bg-secondary-dark-bg sm:w-400">
         <div className="flex justify-between items-center p-4 ml-4">
           <p className="font-semibold text-xl">Settings</p>
           <button
@@ -35,7 +35,7 @@ const ThemeSetting = () => {
               setThemeSetting(false);
             }}
             style={{ color: "rgb:(153,171,180" }}
-            className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray rounded-full"
+            className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray rounded-full  dark:hover:bg-slate-700"
           >
             <MdOutlineCancel />
           </button>
@@ -73,7 +73,7 @@ const ThemeSetting = () => {
         </div>
         <div className="flex-col flex border-t-1 border-color p-4 ml-4">
           <p className="font-semibold text-lg">Theme Colors</p>
-          <div className="flex gap-3">
+          <div className="flex gap-3 flex-wrap">
             {themeColors.map((item, index) => (
               <TooltipComponent
                 key={index}
