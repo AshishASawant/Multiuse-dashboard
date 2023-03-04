@@ -63,11 +63,11 @@ const Ecommerce = () => {
         </div>
       </div>
       <div className="flex gap-10 flex-wrap justify-center">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 rounded-2xl md:w-780 p-4">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 rounded-2xl md:w-780 sm:p-8 p-2">
           <div className="flex justify-between">
             <p className="font-semibold text-xl">Revenue Update</p>
             <div className="flex items-center gap-4">
-              <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
+              <p className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:drop-shadow-xl">
                 <span>
                   <GoPrimitiveDot />
                 </span>
@@ -85,7 +85,7 @@ const Ecommerce = () => {
             className="mt-10 flex gap-10
           flex-wrap justify-center"
           >
-            <div className="border-r-1 border-color m-4 md:pr-10 ">
+            <div className="md:border-r-1  border-color dark:border-white m-4 md:pr-10 ">
               <div>
                 <p>
                   <span className="text-3xl font-semibold">&#8377;83,438</span>
@@ -107,7 +107,7 @@ const Ecommerce = () => {
                   id="line-sparkline"
                   type="Line"
                   height="80px"
-                  width="250px"
+                  width="220px"
                   data={SparklineAreaData}
                   color={currentColor}
                 />
@@ -122,12 +122,12 @@ const Ecommerce = () => {
               </div>
             </div>
             <div>
-              <Stacked width="320px" height="380px" />
+              <Stacked width="300px" height="380px" />
             </div>
           </div>
         </div>
         <div className="flex align-center md:gap-5 flex-col">
-          <div className="rounded-2xl md:w-400 p-4 m-3 flex justify-between flex-col" style={{backgroundColor:currentColor}}>
+          <div className="rounded-2xl md:w-400 p-4 sm:m-3 m-2 flex justify-between flex-col" style={{backgroundColor:currentColor}}>
             <div className="flex justify-between  mt-8">
             <p className="font-semibold text-white text-2xl">Earnings</p>
             <div>
@@ -138,10 +138,10 @@ const Ecommerce = () => {
             </div>
             </div>
             <div className="mt-4">
-              <SparkLine currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
+              <SparkLine currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData}  color="rgb(242, 252, 253)" />
             </div>
           </div>
-          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
+          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 sm:p-8 p-4 sm:m-3 m-2 flex justify-center items-center sm:gap-10 gap-2">
             <div>
               <p className="text-2xl font-semibold ">&#8377;43,2466</p>
               <p className="text-gray-400">Yearly sales</p>
